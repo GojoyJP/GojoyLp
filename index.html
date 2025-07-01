@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悟常依 Models | Visual Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for beautiful typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. First View / Header -->
+    <header class="hero">
+        <h1 class="main-title">悟常依 Models</h1>
+        <p class="subtitle">Visual Portfolio</p>
+    </header>
+
+    <!-- 2. Image Gallery -->
+    <main>
+        <section id="gallery" class="gallery-container">
+            <!-- Images will be dynamically inserted here by JavaScript -->
+        </section>
+    </main>
+
+    <!-- 3. Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Your Name / Gojoy Models. All Rights Reserved.</p>
+        <div class="social-links">
+            <!-- Add your social media links here -->
+            <a href="#">X (Twitter)</a>
+            <a href="#">Instagram</a>
+            <a href="#">Behance</a>
+        </div>
+    </footer>
+
+    <!-- Modal for enlarged image view -->
+    <div id="modal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="caption" class="caption"></div>
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
