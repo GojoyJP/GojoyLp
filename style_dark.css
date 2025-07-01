@@ -1,0 +1,209 @@
+/* General Body & Typography */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    background-color: #161a1d; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Accent Color Definition --- */
+:root {
+    --accent-color: #00aaff; /* A vibrant blue for accents */
+    --glow-color: rgba(0, 170, 255, 0.5);
+}
+
+/* --- 1. First View / Header --- */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    /* Dark gradient background */
+    background: linear-gradient(135deg, #2c3e50, #161a1d);
+}
+
+.main-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #a0a0a0; /* Lighter grey for subtitle */
+    margin-top: 0.5rem;
+}
+
+/* --- 2. Image Gallery --- */
+.gallery-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem; /* Slightly larger gap */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #333; /* Subtle border */
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    /* Glowing effect */
+    box-shadow: 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item .caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    color: white;
+    padding: 1.5rem 1rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item:hover .caption-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 3. Footer --- */
+.site-footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #111;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+
+.site-footer .social-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.site-footer .social-links a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--glow-color);
+}
+
+/* --- Modal for Enlarged Image (Dark Theme) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Slightly more transparent background */
+    background-color: rgba(10, 10, 10, 0.95);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 80vh;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+}
+
+.caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.close-button {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Animation (re-used) */
+@keyframes zoom {
+    from {transform: scale(0.9)}
+    to {transform: scale(1)}
+}
+
+/* --- Responsive Design (adjustments for dark theme if needed) --- */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+}
